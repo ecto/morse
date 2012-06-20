@@ -41,12 +41,20 @@ function decodeCharacterByMap (char) {
   return ' ';
 }
 
+var util = require('util');
+
 function decodeCharacterByDichotomy (char) {
   var sub = char.split('');
-  var cur;
-  var hold;
-  while (cur = sub.pop()) {
-    sub = sub[cur];
+  return traverseNodeWithCharacters(tree, sub);
+
+  function traverseNodeWithCharacters (node, chars) {
+    var cur = chars.shift();
+    if (!node[cur]) {
+      if (!node.stop) {
+        console.log(node);
+      }
+      return node.stop || '?';
+    }
+    return traverseNodeWithCharacters(node[cur], chars);
   }
-  return sub.stop;
 }
