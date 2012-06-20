@@ -35,25 +35,14 @@ var encoded = morse.encode('Hello, world.');
 
 morse.decode(encoded);
 // HELLO, WORLD.
+````
 
-var encoded = morse.encode([
-  'hello',
-  'world'
-]);
-/*
-[
-  ' ',
-  ' '
-]
-*/
+````javascript
+var encoded = morse.encode([ 'hello', 'world' ]);
+// [ '.... . .-.. .-.. ---', '.-- --- .-. .-.. -..' ]
 
 morse.decode(encoded);
-/*
-[
-  'hello',
-  'world'
-]
-*/
+// [ 'HELLO', 'WORLD' ]
 ````
 
 ## methods
