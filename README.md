@@ -47,11 +47,11 @@ morse.decode(encoded);
 
 ## methods
 
-### morse.encode(str)
+### morse.encode(obj)
 
-Encodes and returns a given string
+Encodes and returns a given string or array
 
-### morse.decode(str, dichotomic)
+### morse.decode(obj, dichotomic)
 
 Decodes and returns a string or array
 
