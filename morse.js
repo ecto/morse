@@ -9,16 +9,7 @@ var map = require('./map');
 var tree = require('./tree');
 
 function encode (obj) {
-  if (!obj.pop) {
-    return encodeMorseString(obj);
-  }
-
-  var clone = [];
-  var i = 0;
-  for (; i < obj.length; i++) {
-    clone[i] = encodeMorseString(obj[i]);
-  }
-  return clone;
+  return maybeRecurse(obj, encodeMorseString);
 
   function encodeMorseString (str) {
     var ret = str.split('');
@@ -30,16 +21,7 @@ function encode (obj) {
 }
 
 function decode (obj, dichotomic) {
-  if (!obj.pop) {
-    return decodeMorseString(obj);
-  }
-
-  var clone = [];
-  var i = 0;
-  for (; i < obj.length; i++) {
-    clone[i] = decodeMorseString(obj[i]);
-  }
-  return clone;
+  return maybeRecurse(obj, decodeMorseString);
 
   function decodeMorseString (str) {
     var ret = str.split(' ');
@@ -52,6 +34,19 @@ function decode (obj, dichotomic) {
     }
     return ret.join('');
   }
+}
+
+function maybeRecurse (obj, func) {
+  if (!obj.pop) {
+    return func(obj);
+  }
+
+  var clone = [];
+  var i = 0;
+  for (; i < obj.length; i++) {
+    clone[i] = func(obj[i]);
+  }
+  return clone;
 }
 
 function decodeCharacterByMap (char) {
