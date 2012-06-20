@@ -8,6 +8,14 @@ module.exports = {
 var map = require('./map');
 var tree = require('./tree');
 
+function encodeString (str) {
+  var ret = str.split('');
+  for (var i in ret) {
+    ret[i] = map[ret[i].toUpperCase()] || '?';
+  }
+  return ret.join(' ');
+}
+
 function decodeString (str, dichotomic) {
   if (str === undefined) {
     return '';
