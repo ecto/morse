@@ -7,8 +7,13 @@
     "type": "git",
     "url": "git://github.com/ecto/morse.git"
   },
+  "bin": {
+    "morse": "bin/morse.js"
+  },
   "main": "morse.js",
-  "dependencies": {},
+  "dependencies": {
+    "optimist": "*"
+  },
   "devDependencies": {},
   "optionalDependencies": {},
   "engines": {
