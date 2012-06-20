@@ -17,12 +17,16 @@ For use as a library:
 ## example usage as a CLI
 
 ````
-morse -h
+$ morse -h
+Usage: morse [options] string
 
+Options:
+  -d, --decode  Decode a string of Morse code  [boolean]
+  -h, --help    Show this text  
 
-morse hello > hello.txt
-
-morse -d "`cat hello.txt`"
+$ morse hello > hello.txt
+$ morse -d "`cat hello.txt`"
+HELLO
 ````
 
 ## example usage as a library
