@@ -1,6 +1,6 @@
 module.exports = {
-  encode: encodeString,
-  decode: decodeString,
+  encode: encode,
+  decode: decode,
   map: map,
   tree: tree
 };
@@ -8,28 +8,50 @@ module.exports = {
 var map = require('./map');
 var tree = require('./tree');
 
-function encodeString (str) {
-  var ret = str.split('');
-  for (var i in ret) {
-    ret[i] = map[ret[i].toUpperCase()] || '?';
+function encode (obj) {
+  if (!obj.pop) {
+    return encodeMorseString(obj);
   }
-  return ret.join(' ');
+
+  var clone = [];
+  var i = 0;
+  for (; i < obj.length; i++) {
+    clone[i] = encodeMorseString(obj[i]);
+  }
+  return clone;
+
+  function encodeMorseString (str) {
+    var ret = str.split('');
+    for (var j in ret) {
+      ret[j] = map[ret[j].toUpperCase()] || '?';
+    }
+    return ret.join(' ');
+  }
 }
 
-function decodeString (str, dichotomic) {
-  if (!str) {
-    return '';
+function decode (obj, dichotomic) {
+  if (!obj.pop) {
+    return decodeMorseString(obj);
   }
 
-  var ret = str.split(' ');
-  for (var i in ret) {
-    if (!dichotomic) {
-      ret[i] = decodeCharacterByMap(ret[i]);
-    } else {
-      ret[i] = decodeCharacterByDichotomy(ret[i]);
-    }
+  var clone = [];
+  var i = 0;
+  for (; i < obj.length; i++) {
+    clone[i] = decodeMorseString(obj[i]);
   }
-  return ret.join('');
+  return clone;
+
+  function decodeMorseString (str) {
+    var ret = str.split(' ');
+    for (var i in ret) {
+      if (!dichotomic) {
+        ret[i] = decodeCharacterByMap(ret[i]);
+      } else {
+        ret[i] = decodeCharacterByDichotomy(ret[i]);
+      }
+    }
+    return ret.join('');
+  }
 }
 
 function decodeCharacterByMap (char) {
@@ -50,9 +72,6 @@ function decodeCharacterByDichotomy (char) {
   function traverseNodeWithCharacters (node, chars) {
     var cur = chars.shift();
     if (!node[cur]) {
-      if (!node.stop) {
-        console.log(node);
-      }
       return node.stop || '?';
     }
     return traverseNodeWithCharacters(node[cur], chars);
