@@ -55,4 +55,3 @@ module.exports = {
   '@': '.--.-.',  // at symbol from http://www.learnmorsecode.com/
   ' ': '.......'
 };
-

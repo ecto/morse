@@ -108,6 +108,112 @@ module.exports = {
     }
   },
   '-': {
-
+    stop: 'T',
+    '.': {
+      stop: 'N',
+      '.': {
+        stop: 'D',
+        '.': {
+          stop: 'B',
+          '.': {
+            stop: '6',
+            // notive lack of .
+            '-': {
+              stop: '-'
+            }
+          },
+          '-': {
+            stop: '='
+          }
+        },
+        '-': {
+          stop: 'X',
+          // notice lack of -
+          '.': {
+            stop: '/'
+          }
+        }
+      },
+      '-': {
+        stop: 'K',
+        '.': {
+          stop: 'C',
+          '.': {
+            stop: 'Ç'
+          },
+          '-': {
+            // notice lack of stop
+            '.': {
+              stop: ';'
+            },
+            '-': {
+              stop: '!'
+            }
+          }
+        },
+        '-': {
+          stop: 'Y',
+          // notice lack of -
+          '.': {
+            stop: 'Ĥ',
+            // notice lack of .
+            '-': {
+              stop: '()'
+            }
+          }
+        }
+      }
+    },
+    '-': {
+      stop: 'M',
+      '.': {
+        stop: 'G',
+        '.': {
+          stop: 'Z',
+          '.': {
+            stop: '7'
+          },
+          '-': {
+            // note lack of stop
+            // note lack of .
+            '-': {
+              stop: ','
+            }
+          }
+        },
+        '-': {
+          stop: 'Q',
+          '.': {
+            stop: 'Ĝ'
+          },
+          '-': {
+            stop: 'Ñ'
+          }
+        }
+      },
+      '-': {
+        stop: 'O',
+        '.': {
+          stop: 'Ö',
+          // note lack of -
+          '.': {
+            stop: '8',
+            // note lack of -
+            '.': {
+              stop: ':'
+            }
+          }
+        },
+        '-': {
+          stop: 'CH', // is there a digraph for this?
+          '.': {
+            stop: '9'
+          },
+          '-': {
+            stop: '0'
+          }
+        }
+      }
+    }
   }
 };
