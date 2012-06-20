@@ -63,8 +63,6 @@ function decodeCharacterByMap (char) {
   return ' ';
 }
 
-var util = require('util');
-
 function decodeCharacterByDichotomy (char) {
   var sub = char.split('');
   return traverseNodeWithCharacters(tree, sub);
