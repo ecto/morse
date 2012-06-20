@@ -1,7 +1,8 @@
 module.exports = {
   encode: encodeString,
   decode: decodeString,
-  map: map
+  map: map,
+  tree: tree
 };
 
 var map = require('./map');

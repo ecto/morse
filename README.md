@@ -69,7 +69,11 @@ The dichotomic approach looks like this:
 
 ### morse.map
 
-An object containing `letter: morse` translations
+An object containing `letter: morse` translations contained in `map.js`
+
+### morse.tree
+
+A tree-modeled object contained in `tree.js`
 
 ## license
 
