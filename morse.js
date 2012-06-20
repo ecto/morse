@@ -1,8 +1,9 @@
 module.exports = {
-  encode: encode,
-  decode: decode
+  encode: encodeString,
+  decode: decodeString
 };
 
+// copied from http://freenet.msp.mn.us/people/calguire/morse.html
 var map = {
   'A': '.-',
   'B': '-...',
@@ -53,15 +54,42 @@ var map = {
   ':': '---...',  // colon
   '/': '-..-.',   // slash
   '-': '-....-',  // dash
-  '\'': '.----.', // apostrophe
+  "'": '.----.',  // apostrophe
   '()': '-.--.-', // parenthesis
-  '_': '..--.-'   // underline
+  '_': '..--.-',  // underline
+  '@': '.--.-.',  // at symbol from http://www.learnmorsecode.com/
+  ' ': '.......'
 };
 
-var encode = function (str) {
-  
-};
+function encodeString (str) {
+  var ret = str.split('');
+  for (var i in ret) {
+    ret[i] = map[ret[i].toUpperCase()] || '?';
+  }
+  return ret.join(' ');
+}
 
-var decode = function (options, str) {
+function decodeString (str, dichotomic) {
+  if (str === undefined) {
+    return '';
+  }
 
-};
+  var ret = str.split(' ');
+  for (var i in ret) {
+    if (typeof dichotomic === undefined || dichotomic !== true) {
+      ret[i] = decodeCharacterByMap(ret[i]);
+    } else {
+      ret[i] = decodeCharacterByDichotomy(ret[i]);
+    }
+  }
+  return ret.join('');
+}
+
+function decodeCharacterByMap (char) {
+  for (var i in map) {
+    if (map[i] == char) {
+      return i;
+    }
+  }
+  return ' ';
+}
