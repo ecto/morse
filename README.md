@@ -29,11 +29,15 @@ morse -d --.
 
 Either use
 
-    <script src="/morse.js"></script>
+````html
+<script src="/morse.js"></script>
+````
 
 or
 
-    var morse = require('morse');
+````javascript
+var morse = require('morse');
+````
 
 and then you can
 
