@@ -1,6 +1,7 @@
 module.exports = {
   encode: encodeString,
-  decode: decodeString
+  decode: decodeString,
+  map: map
 };
 
 // copied from http://freenet.msp.mn.us/people/calguire/morse.html
