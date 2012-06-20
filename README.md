@@ -22,7 +22,7 @@ morse -h
 
 morse hello > hello.txt
 
-morse -d "\`cat hello.txt\`"
+morse -d "`cat hello.txt`"
 ````
 
 ## example usage as a library
