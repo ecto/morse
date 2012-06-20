@@ -27,9 +27,19 @@ morse -d --.
 
 ## example usage as a library
 
+Either use
+
+    <script src="/morse.js"></script>
+
+or
+
+    var morse = require('morse');
+
+and then you can
+
 ````javascript
 morse.encode('Hello, world.');
-// 
+// .... . .-.. .-.. --- --..-- ....... .-- --- .-. .-.. -.. .-.-.-
 
 morse.decode('');
 // HELLO, WORLD.
