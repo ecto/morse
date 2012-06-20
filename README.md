@@ -20,9 +20,9 @@ For use as a library:
 morse -h
 
 
-morse hello
+morse hello > hello.txt
 
-morse -d --.
+morse -d "\`cat hello.txt\`"
 ````
 
 ## example usage as a library
@@ -52,6 +52,16 @@ Decodes and returns a string or array
 The dichotomic approach looks like this:
 
 ![](http://i.imgur.com/Y1bnV.png)
+
+The implementation does not include spaces right now, so it fails its test. However, it is otherwise accurate.
+
+````javascript
+morse.decode(
+  morse.encode('Hello, world.'),
+  true
+);
+// HELLO,5WORLD.
+````
 
 ## attributes
 
