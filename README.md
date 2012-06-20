@@ -1,6 +1,6 @@
 #morse
 
-A simple Morse code library for node and the browser
+A simple Morse code library for node
 
 ![Samuel F.B. Morse](http://i.imgur.com/HHHTQ.jpg)
 
@@ -27,21 +27,9 @@ morse -d --.
 
 ## example usage as a library
 
-Either use
-
-````html
-<script src="/morse.js"></script>
-````
-
-or
-
 ````javascript
 var morse = require('morse');
-````
 
-and then you can
-
-````javascript
 morse.encode('Hello, world.');
 // .... . .-.. .-.. --- --..-- ....... .-- --- .-. .-.. -.. .-.-.-
 

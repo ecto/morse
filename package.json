@@ -1,7 +1,7 @@
 {
   "author": "Cam Pedersen <diffference@gmail.com> (http://campedersen.com/)",
   "name": "morse",
-  "description": "a simple Morse d/encoder for node and the browser",
+  "description": "Morse code for mad scientists",
   "version": "0.0.0",
   "repository": {
     "type": "git",

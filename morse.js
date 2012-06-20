@@ -17,13 +17,13 @@ function encodeString (str) {
 }
 
 function decodeString (str, dichotomic) {
-  if (str === undefined) {
+  if (!str) {
     return '';
   }
 
   var ret = str.split(' ');
   for (var i in ret) {
-    if (typeof dichotomic === undefined || dichotomic !== true) {
+    if (!dichotomic) {
       ret[i] = decodeCharacterByMap(ret[i]);
     } else {
       ret[i] = decodeCharacterByDichotomy(ret[i]);
