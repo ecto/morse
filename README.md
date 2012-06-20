@@ -30,11 +30,30 @@ morse -d "`cat hello.txt`"
 ````javascript
 var morse = require('morse');
 
-morse.encode('Hello, world.');
+var encoded = morse.encode('Hello, world.');
 // .... . .-.. .-.. --- --..-- ....... .-- --- .-. .-.. -.. .-.-.-
 
-morse.decode('');
+morse.decode(encoded);
 // HELLO, WORLD.
+
+var encoded = morse.encode([
+  'hello',
+  'world'
+]);
+/*
+[
+  ' ',
+  ' '
+]
+*/
+
+morse.decode(encoded);
+/*
+[
+  'hello',
+  'world'
+]
+*/
 ````
 
 ## methods
